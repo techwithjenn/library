@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Library</title>
+    <link rel='stylesheet' href='style.css'>
+    <script defer src = 'script.js'></script>
+</head>
+<body>
+    <div id='header-box'>
+    <div id='header'>
+    <h2>My Library</h2>
+    <div id='library-info'>
+        <p id='total'>Total Books: 0</p>
+        <p id='read-books'>Read: 0</p>
+        <p id='unread-books'>Unread: 0</p>
+    </div>
+    </div>
+    </div>
+    <button id='add-book' onclick='openForm()'>+</button>
+    <div class = 'modal'>
+    <div id='book-form'>
+        <h4>Add your book here:</h4>
+        
+        <div id = 'titleInfo'>
+        <label for='title'>Title</label>
+        <input id='title' type='text' placeholder='Title'>
+        </div>
+
+        <div id = 'authorInfo'>
+        <label for='author'>Author</label>
+        <input id='author' type='text' placeholder='Author'>
+        </div>
+
+        <div id = 'pageInfo'>    
+        <label for='pages'>Number of Pages</label>
+        <input id='pages' type='number' placeholder='Number of Pages'>
+        </div>
+
+        <div id = 'readInfo'>
+        <label for='read'>Read</label>
+        <input id='read' type='checkbox' placeholder='Read?'>
+        </div>
+
+        <button id='submit-book' onclick='addBook()'>Submit Book</button>
+        <button id='close-form' onclick='closeForm()'>Close Form</button>
+    </div>
+    </div>
+    <div id='cards'></div>
+
+    <div id='footer'>This is a fun, test project.</div>
+    
+
+</body>
+</html>
