@@ -77,18 +77,21 @@ function displayCard(book) {
     }
 
     card.innerHTML = `
+    <button type="button" class="close-button">X</button>
+
     <p class='cardTitle' style='font-size: 150%'>${book.title}</p>
     <p>Author: ${book.author}</p>
     <p>Pages: ${book.pages}</p>
     <p id='readUpdate'>Read Status: ${text}</p>
     <label for='readCheck'>Mark as read</label>
     ${checkStatus}
-    <p><button class='removeButton'>Remove this book</button></p>
+
 
     `
+    // <p><button class='removeButton'>Remove this book</button></p>
     
 
-    let removeButton = card.querySelector('button.removeButton');
+    let removeButton = card.querySelector('button.close-button');
     removeButton.addEventListener('click', function() {
         card.remove();
         myLibrary.splice(myLibrary.indexOf(book), 1)
@@ -96,14 +99,16 @@ function displayCard(book) {
 
     let readButton = card.querySelector('input#readCheck');
     readButton.addEventListener('click', function() {
+        let readStatus = card.querySelector('#readUpdate')
+        
         this.read = !this.read;
         myLibrary[myLibrary.indexOf(book)].read = !myLibrary[myLibrary.indexOf(book)].read
-        let readStatus = card.querySelector('#readUpdate')
-        if (this.read) {
-            readStatus.textContent = 'Read Status: Read'
-        }
-        else {
-            readStatus.textContent = 'Read Status: Not Read'
+
+        console.log(this)
+        if (book.read) {
+            readStatus.textContent = 'Read Status: Read';
+        } else if (!book.read) {
+            readStatus.textContent = 'Read Status: Not Read';
         }
         console.log(this.read)
     })
@@ -145,8 +150,15 @@ window.addEventListener('click', function() {
 
 // let userBook1 = new Book('To Kill A Mockingbird', 'RL Stine', 300, true);
 // let userBook2 = new Book('Anxiety Tips', 'Wayne Dwyer', 200, true);
+// let userBook3 = new Book('Dog Training', 'Cesar Milan', 100, true);
+// let userBook4 = new Book('Relaxation Guidance', 'Joe Smith', 100, true);
 
 // myLibrary.push(userBook1);
 // myLibrary.push(userBook2);
+// myLibrary.push(userBook3);
+// myLibrary.push(userBook4);
+
 // displayCard(userBook1);
 // displayCard(userBook2);
+// displayCard(userBook3);
+// displayCard(userBook4);

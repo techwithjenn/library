@@ -1,3 +1,5 @@
+
+
 .card {
     background-image: linear-gradient(#B5DDA4, #4DAA57);
 
@@ -22,6 +24,7 @@
     left: 0;
     top: 0;
     width: 100%;
+    z-index: 2;
     height: 100%;
     background-color: rgba(0,0,0,.5);
     opacity: 0;
@@ -38,7 +41,25 @@
     justify-content: center;
 }
 
+.close-button {
+    position: relative;
+    float: right;
+    
+    background-color: inherit;
+    border: none;
+    vertical-align: middle;
+    font-weight: bold;
+    text-align: center;
+    font-size: 30px;
+    cursor: pointer;
+    white-space: nowrap;
+    color: black;
+}
 
+.close-button:hover {
+    transform: scale(1.5);
+    transition: 200ms ease-in;
+}
 
 
 body {
@@ -47,10 +68,12 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    width: 100%;
     align-items: center;
     justify-content: space-between;
     margin: 0;
-    gap: 20px;
+    padding: 0;
+    gap: 10px;
 }
 
 #footer {
@@ -76,6 +99,7 @@ body {
     display: flex;
     visibility: visible;
     flex-direction: column;
+    z-index: 3;
     align-items: flex-start;
     gap: 10px;
     font-size: 125%;
@@ -122,7 +146,7 @@ h4 {
 }
 
 #header {
-    width: 60%;
+    width: 80%;
     height: auto;
     display: flex;
     flex-direction: row;
@@ -134,14 +158,16 @@ h4 {
 
 #header-box {
     background-color: darkgray;
-    width: 100%;
+    min-width: 100%;
     min-height: 200px;
     padding: 0px;
     margin: 0px;
     display: flex;
     justify-content: center;
+    flex-shrink: 0;
     
     background-image: url('bg.jpg');
+    background-size: cover;
 
     
 
